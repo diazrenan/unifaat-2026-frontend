@@ -65,3 +65,20 @@ export interface AuthCheckResult {
   authenticated: boolean;
   idUser?: number;
 }
+
+// ── Tipos de busca de usuários (Elasticsearch) ──────────────
+
+/**
+ * Filtros aceitos pelo endpoint POST /users/search.
+ * Todos os campos de texto usam LIKE '%valor%' (case-insensitive).
+ * Pelo menos um campo deve ser fornecido por chamada.
+ */
+export interface UserSearchFilters {
+  name?: string;
+  email?: string;
+  job_title?: string;
+  bio?: string;
+  city?: string;
+  state?: string;
+  is_active?: boolean;
+}
